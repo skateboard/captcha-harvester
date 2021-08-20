@@ -3,11 +3,16 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-group 'template.group'
-version '1.0-SNAPSHOT'
+group 'me.brennan'
+version '1.0'
 
 repositories {
     mavenCentral()
+
+    maven {
+        name = 'JxBrowser'
+        url = 'https://europe-maven.pkg.dev/jxbrowser/releases'
+    }
 }
 
 configurations {
@@ -17,7 +22,9 @@ configurations {
 }
 
 dependencies {
-
+    shaded 'com.squareup.okhttp3:okhttp:+'
+    shaded 'com.teamdev.jxbrowser:jxbrowser-cross-platform:7.14'
+    shaded 'com.teamdev.jxbrowser:jxbrowser-swing:7.14'
 }
 
 shadowJar {
