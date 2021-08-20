@@ -27,13 +27,13 @@ public class CaptchaWindow {
     private Browser browser;
     private JFrame frame;
 
-    public CaptchaWindow(String siteURL, String siteKey, CaptchaManager captchaManager) {
+    public CaptchaWindow(String siteURL, String siteKey, String jxBrowserLicense, CaptchaManager captchaManager) {
         this.siteURL = siteURL;
         this.siteKey = siteKey;
         this.captchaManager = captchaManager;
 
         this.engine = Engine.newInstance(EngineOptions
-                .newBuilder(RenderingMode.HARDWARE_ACCELERATED).licenseKey("TOKEN").build());
+                .newBuilder(RenderingMode.HARDWARE_ACCELERATED).licenseKey(jxBrowserLicense).build());
 
         this.frame = new JFrame("Captcha Harvester");
         this.frame.addWindowListener(new WindowAdapter() {
